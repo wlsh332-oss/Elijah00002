@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>班級重要資訊佈告欄</title>
+    <!-- 引入 Tailwind CSS 進行快速排版與響應式設計 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 FontAwesome 圖示庫 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入 Google 字體 Noto Sans TC -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            /* 莫蘭迪暖灰底色 */
+            background-color: #F4F1ED;
+            color: #5C564D;
+        }
+
+        /* 自定義捲軸樣式，讓整體更精緻 */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background-color: #D3CEC4; border-radius: 10px; }
+    </style>
+</head>
+<body class="min-h-screen py-8 px-4 sm:px-6 lg:px-8 flex justify-center">
+
+    <!-- 主容器：限制最大寬度，在電腦上置中，在手機上滿版 -->
+    <div class="max-w-xl w-full space-y-6">
+
+        <!-- 頂部標題區 -->
+        <header class="text-center mb-8">
+            <div class="inline-block p-4 rounded-full bg-[#E5DCC5] text-[#8C7A5B] mb-3 shadow-sm">
+                <i class="fa-solid fa-chalkboard-user text-3xl"></i>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-bold text-[#4A453E] tracking-wide">二年三班 班級佈告欄</h1>
+            <p id="dateDisplay" class="text-sm text-[#8C8477] mt-2 font-medium">今天是...</p>
+        </header>
+
+        <!-- (a) 導師的話 -->
+        <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-[#EAE6DE] transform transition duration-300 hover:shadow-md">
+            <div class="flex items-center mb-4">
+                <div class="w-10 h-10 rounded-full bg-[#F2E5E5] text-[#B07D7D] flex items-center justify-center mr-3">
+                    <i class="fa-solid fa-comment-dots text-lg"></i>
+                </div>
+                <h2 class="text-xl font-bold text-[#4A453E]">導師的話</h2>
+            </div>
+            <div class="bg-[#FCFAFA] rounded-2xl p-5 text-[#6B645C] leading-relaxed relative">
+                <!-- 裝飾用引號 -->
+                <i class="fa-solid fa-quote-left absolute top-3 left-3 text-[#EBD9D9] text-2xl opacity-50"></i>
+                <p class="relative z-10 pl-4">
+                    各位家長與同學好，本週開始天氣轉涼，請提醒孩子們多帶一件薄外套來學校。<br><br>
+                    另外，下週即將進行第一次段考，希望大家週末能妥善安排複習進度。若在課業或生活上有任何需要協助的地方，隨時歡迎透過官方 LINE 群組與我聯繫，讓我們一起陪伴孩子成長！😊
+                </p>
+                <div class="text-right mt-3 text-sm font-bold text-[#B07D7D]">- 班導師 敬上</div>
+            </div>
+        </section>
+
+        <!-- (b) 本週重要事項 -->
+        <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-[#EAE6DE] transform transition duration-300 hover:shadow-md">
+            <div class="flex items-center mb-5">
+                <div class="w-10 h-10 rounded-full bg-[#E6EBE6] text-[#78907A] flex items-center justify-center mr-3">
+                    <i class="fa-solid fa-thumbtack text-lg"></i>
+                </div>
+                <h2 class="text-xl font-bold text-[#4A453E]">本週重要事項</h2>
+            </div>
+            
+            <ul class="space-y-4">
+                <!-- 事項 1 -->
+                <li class="flex items-start">
+                    <div class="mt-1 mr-3 text-[#9EAC9F]">
+                        <i class="fa-regular fa-square-check"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-[#5C564D]">繳交戶外教學回條</h3>
+                        <p class="text-sm text-[#8C8477] mt-0.5">請於本週三 (10/18) 前交給學藝股長，逾期不候。</p>
+                    </div>
+                </li>
+                <!-- 事項 2 -->
+                <li class="flex items-start">
+                    <div class="mt-1 mr-3 text-[#9EAC9F]">
+                        <i class="fa-regular fa-square-check"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-[#5C564D]">換季服裝規定</h3>
+                        <p class="text-sm text-[#8C8477] mt-0.5">自本週四起開放穿著冬季制服，請確認學號是否已繡妥。</p>
+                    </div>
+                </li>
+                <!-- 事項 3 -->
+                <li class="flex items-start">
+                    <div class="mt-1 mr-3 text-[#9EAC9F]">
+                        <i class="fa-regular fa-square-check"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-[#5C564D]">班會課：段考複習計畫填寫</h3>
+                        <p class="text-sm text-[#8C8477] mt-0.5">請同學們務必攜帶自己的行事曆或筆記本。</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- (c) 學校重要連結 -->
+        <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-[#EAE6DE] transform transition duration-300 hover:shadow-md">
+            <div class="flex items-center mb-5">
+                <div class="w-10 h-10 rounded-full bg-[#E5EAEF] text-[#71889C] flex items-center justify-center mr-3">
+                    <i class="fa-solid fa-link text-lg"></i>
+                </div>
+                <h2 class="text-xl font-bold text-[#4A453E]">重要連結</h2>
+            </div>
+
+            <!-- 連結按鈕網格：手機 2 欄，稍大螢幕 4 欄 -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+                <a href="#" class="flex flex-col items-center justify-center p-4 bg-[#F8F9FA] rounded-2xl hover:bg-[#EAEFF4] transition text-[#5C564D] group border border-transparent hover:border-[#D1DCE5]">
+                    <i class="fa-solid fa-school text-2xl text-[#8E9EAD] mb-2 group-hover:text-[#71889C] transition transform group-hover:scale-110"></i>
+                    <span class="text-sm font-medium">學校首頁</span>
+                </a>
+                <a href="#" class="flex flex-col items-center justify-center p-4 bg-[#F8F9FA] rounded-2xl hover:bg-[#EAEFF4] transition text-[#5C564D] group border border-transparent hover:border-[#D1DCE5]">
+                    <i class="fa-solid fa-chart-line text-2xl text-[#8E9EAD] mb-2 group-hover:text-[#71889C] transition transform group-hover:scale-110"></i>
+                    <span class="text-sm font-medium">成績查詢</span>
+                </a>
+                <a href="#" class="flex flex-col items-center justify-center p-4 bg-[#F8F9FA] rounded-2xl hover:bg-[#EAEFF4] transition text-[#5C564D] group border border-transparent hover:border-[#D1DCE5]">
+                    <i class="fa-solid fa-calendar-check text-2xl text-[#8E9EAD] mb-2 group-hover:text-[#71889C] transition transform group-hover:scale-110"></i>
+                    <span class="text-sm font-medium">請假系統</span>
+                </a>
+                <a href="#" class="flex flex-col items-center justify-center p-4 bg-[#F8F9FA] rounded-2xl hover:bg-[#EAEFF4] transition text-[#5C564D] group border border-transparent hover:border-[#D1DCE5]">
+                    <i class="fa-solid fa-utensils text-2xl text-[#8E9EAD] mb-2 group-hover:text-[#71889C] transition transform group-hover:scale-110"></i>
+                    <span class="text-sm font-medium">本月菜單</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 頁尾 -->
+        <footer class="text-center pt-4 pb-8">
+            <p class="text-xs text-[#A8A095]">
+                本資訊欄僅供班級內部使用，請勿外流。<br>
+                如果有任何緊急事項，請撥打導師專線。
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- 加入簡單的 JavaScript 來顯示當天日期與星期 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dateDisplay = document.getElementById('dateDisplay');
+            const now = new Date();
+            
+            const year = now.getFullYear();
+            const month = now.getMonth() + 1;
+            const date = now.getDate();
+            const days = ['日', '一', '二', '三', '四', '五', '六'];
+            const dayOfWeek = days[now.getDay()];
+
+            dateDisplay.innerHTML = `今天是 <span class="font-bold text-[#71889C]">${year} 年 ${month} 月 ${date} 日 (星期${dayOfWeek})</span>，祝您有美好的一天！`;
+        });
+    </script>
+</body>
+</html>
